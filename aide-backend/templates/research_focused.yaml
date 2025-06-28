@@ -1,0 +1,134 @@
+name: "research_focused"
+display_name: "Research Focused"
+description: "Configuration optimized for academic research and experimental studies. Emphasizes statistical rigor and reproducibility."
+category: "research"
+complexity: "expert"
+estimated_cost: "$10-25"
+estimated_time: "30-60 minutes"
+use_case: "Academic research, novel techniques exploration, publication-quality results, experimental studies"
+
+prerequisites:
+  - "Research methodology understanding"
+  - "Statistical knowledge"
+  - "Domain expertise"
+  - "Publication requirements"
+  - "Reproducibility concerns"
+
+tags:
+  - "research"
+  - "academic"
+  - "statistical"
+  - "gpt-4"
+  - "rigorous"
+  - "reproducible"
+
+config_data:
+  # Project settings
+  log_dir: "logs"
+  workspace_dir: "workspaces"
+  preprocess_data: true
+  copy_data: true
+  
+  # Agent configuration - optimized for research rigor
+  agent:
+    steps: 25                   # Sufficient for thorough exploration
+    k_fold_validation: 10       # High k for statistical significance
+    expose_prediction: true     # Generate reproducible functions
+    data_preview: true          # Comprehensive data analysis
+    
+    # Code generation - premium model with balanced temperature for exploration
+    code:
+      model: "gpt-4-turbo"
+      temp: 0.4               # Moderate temperature for creative solutions
+    
+    # Feedback - premium model with low temperature for precise evaluation
+    feedback:
+      model: "gpt-4-turbo"
+      temp: 0.3               # Conservative evaluation
+    
+    # Search strategy - thorough but controlled
+    search:
+      max_debug_depth: 4        # Moderate debugging depth
+      debug_prob: 0.7           # High debugging probability for robustness
+      num_drafts: 6             # Multiple approaches for comparison
+  
+  # Execution settings
+  exec:
+    timeout: 5400               # 90 minutes for complex research models
+    agent_file_name: "runfile.py"
+    format_tb_ipython: false
+  
+  # Report generation - detailed academic-style reporting
+  generate_report: true
+  report:
+    model: "gpt-4-turbo"
+    temp: 1.2                 # Higher creativity for comprehensive analysis
+
+# Research-specific features
+research_features:
+  - "Statistical significance testing"
+  - "Cross-validation with high k"
+  - "Reproducible code generation"
+  - "Comprehensive methodology documentation"
+  - "Multiple model comparison"
+  - "Effect size calculations"
+
+# Statistical considerations
+statistical_rigor:
+  validation_folds: 10
+  significance_level: 0.05
+  confidence_intervals: true
+  bootstrap_samples: 1000
+  multiple_testing_correction: "Bonferroni"
+
+# Performance characteristics
+performance:
+  speed: "Methodical"
+  cost: "Moderate-High"
+  quality: "Research-Grade"
+  reliability: "Very High"
+
+# Reproducibility features
+reproducibility:
+  - "Fixed random seeds"
+  - "Version-controlled code"
+  - "Detailed parameter logging"
+  - "Environment documentation"
+  - "Data preprocessing transparency"
+  - "Model artifact preservation"
+
+# Publication support
+publication_support:
+  - "Academic-style reporting"
+  - "Statistical test results"
+  - "Methodology documentation"
+  - "Performance comparison tables"
+  - "Significance testing"
+  - "Effect size reporting"
+
+# Recommended methodologies
+methodologies:
+  - "Nested cross-validation"
+  - "Statistical significance testing"
+  - "Multiple comparison corrections"
+  - "Bootstrap confidence intervals"
+  - "Ablation studies"
+  - "Sensitivity analysis"
+
+# Recommended for
+recommended_for:
+  - "Academic researchers"
+  - "PhD students"
+  - "Research publications"
+  - "Grant proposals"
+  - "Peer review submissions"
+  - "Experimental studies"
+  - "Novel technique validation"
+
+# Quality standards
+quality_standards:
+  reproducibility: "Mandatory"
+  statistical_rigor: "High"
+  documentation: "Comprehensive"
+  methodology: "Transparent"
+  validation: "Rigorous"

@@ -1,0 +1,78 @@
+name: "quick_experiment"
+display_name: "Quick Experiment"
+description: "Fast configuration for rapid prototyping and initial data exploration. Perfect for getting quick insights and building baseline models."
+category: "quick_experiment"
+complexity: "beginner"
+estimated_cost: "$1-3"
+estimated_time: "5-10 minutes"
+use_case: "Rapid prototyping, initial exploration, quick baseline models, proof of concept"
+
+prerequisites:
+  - "Basic dataset understanding"
+  - "Clear problem definition"
+
+tags:
+  - "quick"
+  - "prototype" 
+  - "beginner"
+  - "gpt-3.5"
+  - "fast"
+  - "baseline"
+
+config_data:
+  # Project settings - minimal for quick setup
+  log_dir: "logs"
+  workspace_dir: "workspaces"
+  preprocess_data: true
+  copy_data: true
+  
+  # Agent configuration - optimized for speed
+  agent:
+    steps: 5                    # Minimal steps for quick results
+    k_fold_validation: 3        # Reduced folds for speed
+    expose_prediction: false    # Skip prediction function generation
+    data_preview: true          # Keep data preview for insights
+    
+    # Code generation - fast model with higher temperature for creativity
+    code:
+      model: "gpt-3.5-turbo"
+      temp: 0.7
+    
+    # Feedback - same fast model with lower temperature for evaluation
+    feedback:
+      model: "gpt-3.5-turbo"
+      temp: 0.5
+    
+    # Search strategy - minimal for speed
+    search:
+      max_debug_depth: 2        # Limited debugging
+      debug_prob: 0.3           # Lower probability of debugging
+      num_drafts: 3             # Fewer initial drafts
+  
+  # Execution settings - shorter timeout
+  exec:
+    timeout: 1800               # 30 minutes max
+    agent_file_name: "runfile.py"
+    format_tb_ipython: false
+  
+  # Report generation - enabled but simple
+  generate_report: true
+  report:
+    model: "gpt-3.5-turbo"
+    temp: 1.0
+
+# Performance characteristics
+performance:
+  speed: "Very Fast"
+  cost: "Very Low"
+  quality: "Basic"
+  reliability: "Good"
+
+# Recommended for
+recommended_for:
+  - "First-time users"
+  - "Quick data exploration"
+  - "Baseline model creation"
+  - "Proof of concept projects"
+  - "Budget-conscious projects"
+  - "Learning and experimentation"

@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # FastAPI Backend
+  backend:
+    build:
+      context: ./aide-backend
+      dockerfile: Dockerfile
+    container_name: aide-backend
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
+    volumes:
+      - ./aide-backend:/app
+      - ./aide:/app/aide  # Mount AIDE core for integration
+      - uploads_data:/app/uploads
+      - experiments_data:/app/experiments
+    ports:
+      - "8000:8000"
+    networks:
+      - aide-network
+
+  # React Frontend
+  frontend:
+    build:
+      context: ./aide-frontend
+      dockerfile: Dockerfile
+    container_name: aide-frontend
+    environment:
+      - VITE_API_URL=http://localhost:8000
+      - VITE_WS_URL=ws://localhost:8000
+    volumes:
+      - ./aide-frontend:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - aide-network
+
+volumes:
+  uploads_data:
+  experiments_data:
+
+networks:
+  aide-network:
+    driver: bridge

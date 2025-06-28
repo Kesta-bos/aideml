@@ -1,0 +1,143 @@
+name: "educational"
+display_name: "Educational"
+description: "Balanced configuration for learning and teaching purposes. Optimized for understanding, exploration, and educational value."
+category: "educational"
+complexity: "intermediate"
+estimated_cost: "$5-12"
+estimated_time: "20-40 minutes"
+use_case: "Educational content, tutorials, demonstrations, learning exercises, classroom projects"
+
+prerequisites:
+  - "Basic ML understanding"
+  - "Learning objectives"
+  - "Educational context"
+
+tags:
+  - "education"
+  - "tutorial"
+  - "learning"
+  - "balanced"
+  - "teaching"
+  - "interactive"
+
+config_data:
+  # Project settings
+  log_dir: "logs"
+  workspace_dir: "workspaces"
+  preprocess_data: true
+  copy_data: true
+  
+  # Agent configuration - balanced for learning
+  agent:
+    steps: 15                   # Moderate steps for good learning progression
+    k_fold_validation: 5        # Standard validation for learning
+    expose_prediction: true     # Generate functions for learning purposes
+    data_preview: true          # Important for educational understanding
+    
+    # Code generation - premium model for quality with moderate temperature
+    code:
+      model: "gpt-4-turbo"
+      temp: 0.5               # Balanced for clarity and creativity
+    
+    # Feedback - cost-effective model for evaluation
+    feedback:
+      model: "gpt-3.5-turbo"
+      temp: 0.6               # Slightly higher for educational explanations
+    
+    # Search strategy - moderate exploration for learning
+    search:
+      max_debug_depth: 3        # Good for learning debugging
+      debug_prob: 0.5           # Balanced debugging for education
+      num_drafts: 5             # Multiple approaches for comparison
+  
+  # Execution settings
+  exec:
+    timeout: 3600               # 1 hour - reasonable for educational context
+    agent_file_name: "runfile.py"
+    format_tb_ipython: true     # IPython formatting for better learning
+  
+  # Report generation - detailed for educational value
+  generate_report: true
+  report:
+    model: "gpt-4-turbo"
+    temp: 1.1                 # Creative for comprehensive educational reports
+
+# Educational features
+educational_features:
+  - "Step-by-step explanations"
+  - "Interactive debugging"
+  - "Multiple solution approaches"
+  - "Clear code documentation"
+  - "Educational error messages"
+  - "Learning-focused reporting"
+
+# Learning objectives support
+learning_objectives:
+  - "Understanding ML pipeline"
+  - "Code implementation skills"
+  - "Model evaluation techniques"
+  - "Data preprocessing methods"
+  - "Performance interpretation"
+  - "Best practices demonstration"
+
+# Performance characteristics
+performance:
+  speed: "Moderate"
+  cost: "Moderate"
+  quality: "High"
+  reliability: "High"
+  educational_value: "Excellent"
+
+# Teaching support features
+teaching_features:
+  - "Clear code comments"
+  - "Explanatory outputs"
+  - "Visual debugging aids"
+  - "Step-by-step progression"
+  - "Multiple model comparisons"
+  - "Interactive elements"
+
+# Assessment support
+assessment_features:
+  - "Performance metrics explanation"
+  - "Model comparison tables"
+  - "Error analysis"
+  - "Improvement suggestions"
+  - "Best practices highlighting"
+  - "Common pitfalls identification"
+
+# Classroom integration
+classroom_ready:
+  - "Predictable execution time"
+  - "Stable performance"
+  - "Clear documentation"
+  - "Reproducible results"
+  - "Educational error handling"
+  - "Student-friendly outputs"
+
+# Skill development areas
+skill_development:
+  - "Data preprocessing"
+  - "Feature engineering"
+  - "Model selection"
+  - "Hyperparameter tuning"
+  - "Performance evaluation"
+  - "Result interpretation"
+
+# Recommended for
+recommended_for:
+  - "ML courses"
+  - "Data science bootcamps"
+  - "Online tutorials"
+  - "Workshop demonstrations"
+  - "Student projects"
+  - "Self-learning exercises"
+  - "Code examples"
+
+# Pedagogical approach
+pedagogy:
+  approach: "Learning by doing"
+  complexity: "Progressive"
+  explanation: "Detailed"
+  examples: "Comprehensive"
+  practice: "Hands-on"

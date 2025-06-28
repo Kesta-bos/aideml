@@ -31,30 +31,16 @@ More specifically, AIDE has the following features:
 
 ## Running AIDE via the Web UI
 
+AIDE now features a modern React-based web interface. To run the web UI:
 
-https://github.com/user-attachments/assets/1da42853-fe36-45e1-b6a2-852f88470af6
-
-
-We have developed a user-friendly Web UI using Streamlit to make it even easier to interact with AIDE.
-
-### Prerequisites
-
-Ensure you have installed the development version of AIDE and its dependencies as described in the [Development](#development) section.
-
-### Running the Web UI
-
-Navigate to the `aide/webui` directory and run the Streamlit application:
-
+1. Start the backend services:
 ```bash
-cd aide/webui
-streamlit run app.py
+docker-compose -f docker-compose-dev.yml up -d
 ```
 
-Alternatively, you can run it from the root directory:
-
-```bash
-streamlit run aide/webui/app.py
-```
+2. Access the application:
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:8000
 
 ### Using the Web UI
 
@@ -201,11 +187,10 @@ pip install -e .
 
 ### Running the Web UI in Development Mode
 
-Ensure that you have all the required development dependencies installed. Then, you can run the Web UI as follows:
+For development, use Docker Compose to run both frontend and backend:
 
 ```bash
-cd aide/webui
-streamlit run app.py
+docker-compose -f docker-compose-dev.yml up -d
 ```
 
 ## Using AIDE with Docker

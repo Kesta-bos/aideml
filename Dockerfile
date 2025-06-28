@@ -1,7 +1,11 @@
 # syntax=docker/dockerfile:1
 
-# Build stage
-FROM python:3.10-slim AS builder
+# Build stage with UV
+FROM ghcr.io/astral-sh/uv:python3.10-slim AS builder
+
+# Set environment variables
+ENV UV_COMPILE_BYTECODE=1
+ENV UV_LINK_MODE=copy
 
 # Install build dependencies
 RUN apt-get update && \
@@ -13,20 +17,22 @@ RUN apt-get update && \
 # Set working directory
 WORKDIR /app
 
-# Copy only the files needed for installation
-COPY requirements.txt setup.py README.md ./
-COPY aide ./aide
+# Copy UV configuration files first for better layer caching
+COPY pyproject.toml ./
 
-# Create virtual environment and install dependencies
-RUN python -m venv /opt/venv && \
-    . /opt/venv/bin/activate && \
-    pip install --no-cache-dir -r requirements.txt && \
-    pip install -e .
+# Copy source code
+COPY aide ./aide
+COPY setup.py README.md ./
+
+# Install dependencies and the package
+RUN uv sync --frozen --no-dev && \
+    uv pip install -e .
 
 # Runtime stage
 FROM python:3.10-slim
 
-# Install runtime dependencies
+# Install runtime dependencies including UV
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /usr/local/bin/
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         unzip \
@@ -35,11 +41,13 @@ RUN apt-get update && \
 # Create non-root user
 RUN useradd -m -u 1000 aide
 
-# Copy virtual environment from builder
-COPY --from=builder /opt/venv /opt/venv
-# Copy the package files needed for the installation
+# Copy UV environment from builder
+COPY --from=builder /app/.venv /app/.venv
 COPY --from=builder /app /app
-ENV PATH="/opt/venv/bin:$PATH"
+
+# Set environment variables
+ENV PATH="/app/.venv/bin:$PATH"
+ENV PYTHONPATH="/app"
 
 # Set working directory
 WORKDIR /app
@@ -52,4 +60,4 @@ RUN mkdir -p logs workspaces && \
 USER aide
 
 # Set default command
-ENTRYPOINT ["aide"]
+ENTRYPOINT ["uv", "run", "aide"]

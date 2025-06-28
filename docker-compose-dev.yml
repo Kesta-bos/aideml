@@ -1,0 +1,43 @@
+# Development Docker Compose - Full stack setup
+services:
+  backend:
+    build: ./aide-backend
+    container_name: aide-backend-dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./aide-backend:/app
+      - ./aide:/app/aide
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
+    command: uv run uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - aide-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build: ./aide-frontend
+    container_name: aide-frontend-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./aide-frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000
+      - VITE_WS_URL=ws://localhost:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - aide-network
+
+networks:
+  aide-network:
+    driver: bridge

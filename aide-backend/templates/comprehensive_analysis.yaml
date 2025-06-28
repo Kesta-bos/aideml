@@ -1,0 +1,115 @@
+name: "comprehensive_analysis"
+display_name: "Comprehensive Analysis"
+description: "High-quality configuration for thorough analysis and production-ready models. Optimized for maximum performance and reliability."
+category: "comprehensive_analysis"
+complexity: "advanced"
+estimated_cost: "$15-40"
+estimated_time: "45-90 minutes"
+use_case: "Production models, comprehensive research, competition submissions, enterprise applications"
+
+prerequisites:
+  - "Well-defined metrics"
+  - "Quality dataset"
+  - "Performance requirements"
+  - "Advanced ML understanding"
+  - "Adequate budget allocation"
+
+tags:
+  - "comprehensive"
+  - "production"
+  - "gpt-4"
+  - "research"
+  - "enterprise"
+  - "high-quality"
+
+config_data:
+  # Project settings
+  log_dir: "logs"
+  workspace_dir: "workspaces"
+  preprocess_data: true
+  copy_data: true
+  
+  # Agent configuration - optimized for quality
+  agent:
+    steps: 30                   # Extensive iteration for refinement
+    k_fold_validation: 5        # Robust validation
+    expose_prediction: true     # Generate production-ready functions
+    data_preview: true          # Comprehensive data understanding
+    
+    # Code generation - premium model with low temperature for precision
+    code:
+      model: "gpt-4-turbo"
+      temp: 0.3               # Low temperature for consistent, high-quality code
+    
+    # Feedback - premium model with very low temperature for precise evaluation
+    feedback:
+      model: "gpt-4-turbo"
+      temp: 0.2               # Minimal temperature for accurate feedback
+    
+    # Search strategy - extensive exploration
+    search:
+      max_debug_depth: 5        # Deep debugging for robustness
+      debug_prob: 0.6           # High probability of debugging
+      num_drafts: 8             # Multiple initial approaches
+  
+  # Execution settings - generous timeout for complex operations
+  exec:
+    timeout: 7200               # 2 hours for complex models
+    agent_file_name: "runfile.py"
+    format_tb_ipython: false
+  
+  # Report generation - high-quality reporting
+  generate_report: true
+  report:
+    model: "gpt-4-turbo"
+    temp: 1.0                 # Creative temperature for comprehensive reports
+
+# Quality assurance features
+quality_features:
+  - "Extensive cross-validation"
+  - "Deep debugging capabilities"
+  - "Production-ready code generation"
+  - "Comprehensive error handling"
+  - "Advanced model exploration"
+  - "Detailed performance analysis"
+
+# Performance characteristics
+performance:
+  speed: "Thorough"
+  cost: "High"
+  quality: "Excellent"
+  reliability: "Very High"
+
+# Advanced features enabled
+advanced_features:
+  - "Prediction function generation"
+  - "Extensive model comparison"
+  - "Deep hyperparameter tuning"
+  - "Comprehensive feature engineering"
+  - "Advanced ensemble methods"
+  - "Production deployment considerations"
+
+# Quality metrics
+target_metrics:
+  accuracy: "Maximize"
+  robustness: "High priority"
+  generalization: "Critical"
+  interpretability: "Important"
+  efficiency: "Secondary"
+
+# Recommended for
+recommended_for:
+  - "Production deployments"
+  - "Research publications"
+  - "Competition submissions"
+  - "Enterprise applications"
+  - "High-stakes projects"
+  - "Quality-critical systems"
+
+# Validation strategy
+validation:
+  strategy: "Rigorous k-fold cross-validation"
+  folds: 5
+  metrics: "Multiple performance indicators"
+  stability: "Consistency across folds"
+  generalization: "Out-of-sample performance"

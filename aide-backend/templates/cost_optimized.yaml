@@ -1,0 +1,94 @@
+name: "cost_optimized"
+display_name: "Cost Optimized"
+description: "Minimal cost configuration while maintaining reasonable performance. Carefully balanced to maximize value per dollar spent."
+category: "cost_optimized"
+complexity: "beginner"
+estimated_cost: "$2-5"
+estimated_time: "10-20 minutes"
+use_case: "Budget-conscious projects, educational purposes, proof of concepts, small business applications"
+
+prerequisites:
+  - "Clear problem definition"
+  - "Budget constraints"
+  - "Basic performance expectations"
+
+tags:
+  - "budget"
+  - "efficient"
+  - "gpt-3.5"
+  - "economy"
+  - "value"
+  - "conservative"
+
+config_data:
+  # Project settings
+  log_dir: "logs"
+  workspace_dir: "workspaces"
+  preprocess_data: true
+  copy_data: true
+  
+  # Agent configuration - balanced for cost efficiency
+  agent:
+    steps: 10                   # Moderate steps for better results
+    k_fold_validation: 3        # Standard validation
+    expose_prediction: false    # Skip to save costs
+    data_preview: true          # Keep for insights
+    
+    # Code generation - cost-effective model with moderate temperature
+    code:
+      model: "gpt-3.5-turbo"
+      temp: 0.5               # Lower temperature for consistency
+    
+    # Feedback - same model with even lower temperature
+    feedback:
+      model: "gpt-3.5-turbo"
+      temp: 0.3               # Very conservative for evaluation
+    
+    # Search strategy - balanced approach
+    search:
+      max_debug_depth: 2        # Limited debugging to control costs
+      debug_prob: 0.4           # Moderate debugging
+      num_drafts: 3             # Minimal drafts
+  
+  # Execution settings
+  exec:
+    timeout: 2400               # 40 minutes max
+    agent_file_name: "runfile.py"
+    format_tb_ipython: false
+  
+  # Report generation
+  generate_report: true
+  report:
+    model: "gpt-3.5-turbo"
+    temp: 0.8                 # Balanced for readability
+
+# Cost breakdown estimation
+cost_breakdown:
+  code_generation: "40%"
+  feedback_evaluation: "35%"
+  report_generation: "20%"
+  search_operations: "5%"
+
+# Performance characteristics
+performance:
+  speed: "Fast"
+  cost: "Very Low"
+  quality: "Good"
+  reliability: "High"
+
+# Optimization strategies
+optimizations:
+  - "Use GPT-3.5-turbo consistently"
+  - "Minimize debugging iterations"
+  - "Skip prediction function generation"
+  - "Shorter timeout to prevent runaway costs"
+  - "Conservative temperature settings"
+
+# Recommended for
+recommended_for:
+  - "Small businesses"
+  - "Educational institutions"
+  - "Personal projects"
+  - "Proof of concepts"
+  - "Budget-constrained research"
+  - "Learning environments"

@@ -1,0 +1,414 @@
+/**
+ * Settings Page Styles
+ * Custom styles for configuration management interface
+ */
+
+/* Settings Page Layout */
+.settings-page {
+  min-height: calc(100vh - 64px);
+  background: #f5f5f5;
+
+  .settings-sidebar {
+    background: #fff;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.06);
+    overflow: auto;
+  }
+
+  .settings-main-content {
+    padding: 24px;
+  }
+}
+
+/* Profile Card Animations */
+.profile-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  &.active {
+    border-color: #52c41a;
+    box-shadow: 0 0 0 2px rgba(82, 196, 26, 0.2);
+  }
+
+  &.selected {
+    border-color: #1890ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+
+  .ant-card-actions {
+    background: rgba(0, 0, 0, 0.02);
+    border-top: 1px solid #f0f0f0;
+
+    & > li {
+      padding: 8px 16px;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.04);
+      }
+    }
+  }
+}
+
+/* Template Card Styles */
+.template-card {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .ant-card-meta-avatar {
+    .template-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: white;
+    }
+  }
+}
+
+/* Configuration Form Styles */
+.config-form {
+  .ant-form-item {
+    margin-bottom: 24px;
+
+    .ant-form-item-label {
+      padding-bottom: 8px;
+
+      label {
+        font-weight: 500;
+        color: #262626;
+
+        &::after {
+          content: none; /* Remove default colon */
+        }
+      }
+    }
+
+    .ant-form-item-explain {
+      font-size: 12px;
+      margin-top: 4px;
+    }
+  }
+
+  .ant-slider {
+    margin: 8px 0 16px 0;
+
+    .ant-slider-mark-text {
+      font-size: 11px;
+    }
+  }
+
+  .ant-input-number {
+    width: 100%;
+  }
+}
+
+/* Validation Panel Styles */
+.validation-panel {
+  .ant-card-head {
+    border-bottom: 1px solid #f0f0f0;
+    min-height: 48px;
+  }
+
+  .validation-errors {
+    .ant-list-item {
+      padding: 8px 0;
+      border-bottom: 1px solid #f5f5f5;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .validation-success {
+    text-align: center;
+    padding: 24px;
+    color: #52c41a;
+
+    .ant-typography {
+      color: #666;
+    }
+  }
+}
+
+/* Quick Actions Styles */
+.quick-actions {
+  .ant-card-body {
+    padding: 12px 16px;
+  }
+
+  .action-button {
+    border: none;
+    background: transparent;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(24, 144, 255, 0.1);
+      color: #1890ff;
+    }
+  }
+}
+
+/* Settings Sidebar Styles */
+.settings-sidebar {
+  .ant-menu {
+    border: none;
+    background: transparent;
+
+    .ant-menu-item {
+      margin-bottom: 4px;
+      border-radius: 6px;
+      height: auto;
+      line-height: 1.4;
+      padding: 12px 16px;
+
+      &:hover {
+        background: #f0f7ff;
+        color: #1890ff;
+      }
+
+      &.ant-menu-item-selected {
+        background: #e6f7ff;
+        color: #1890ff;
+        font-weight: 500;
+
+        &::after {
+          border-right: 3px solid #1890ff;
+        }
+      }
+    }
+  }
+
+  .profile-selector {
+    .ant-select {
+      .ant-select-selection-item {
+        padding: 8px 0;
+        line-height: 1.4;
+      }
+    }
+  }
+}
+
+/* Modal Styles */
+.profile-modal {
+  .ant-modal-header {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 16px 24px;
+  }
+
+  .ant-modal-body {
+    padding: 24px;
+  }
+
+  .ant-form-item-label {
+    font-weight: 500;
+  }
+}
+
+/* Comparison Modal Styles */
+.comparison-modal {
+  .ant-table {
+    .ant-table-thead > tr > th {
+      background: #fafafa;
+      font-weight: 600;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .ant-table-tbody > tr > td {
+      border-bottom: 1px solid #f5f5f5;
+    }
+
+    .comparison-row-different {
+      background-color: #fff7e6;
+
+      &:hover {
+        background-color: #fff1d6 !important;
+      }
+    }
+  }
+
+  .profile-comparison-header {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+
+    .profile-summary-card {
+      min-width: 200px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .settings-page {
+    .settings-sidebar {
+      position: fixed;
+      z-index: 1000;
+      height: 100%;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+
+      &.mobile-open {
+        transform: translateX(0);
+      }
+    }
+
+    .settings-main-content {
+      padding: 16px;
+    }
+  }
+
+  .profile-card,
+  .template-card {
+    margin-bottom: 16px;
+
+    &:hover {
+      transform: none; /* Disable hover effects on mobile */
+    }
+  }
+
+  .config-form {
+    .ant-form-item {
+      margin-bottom: 16px;
+    }
+
+    .ant-slider {
+      margin: 4px 0 12px 0;
+    }
+  }
+
+  .comparison-modal {
+    .ant-modal {
+      max-width: 95vw;
+      margin: 10px;
+    }
+
+    .profile-comparison-header {
+      gap: 8px;
+
+      .profile-summary-card {
+        min-width: 150px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .settings-page {
+    .settings-main-content {
+      padding: 12px;
+    }
+  }
+
+  .quick-actions {
+    .ant-space {
+      flex-wrap: wrap;
+    }
+  }
+
+  .mobile-hidden {
+    display: none;
+  }
+}
+
+/* Custom Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-enter {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.slide-enter {
+  animation: slideInRight 0.3s ease-out;
+}
+
+/* Loading States */
+.settings-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+
+  .ant-spin {
+    .ant-spin-text {
+      margin-top: 12px;
+      color: #666;
+    }
+  }
+}
+
+/* Error States */
+.settings-error {
+  text-align: center;
+  padding: 48px 24px;
+
+  .error-icon {
+    font-size: 48px;
+    color: #ff4d4f;
+    margin-bottom: 16px;
+  }
+
+  .error-message {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 24px;
+  }
+}
+
+/* Success States */
+.settings-success {
+  .ant-result-success {
+    .ant-result-icon {
+      color: #52c41a;
+    }
+  }
+}
+
+/* Custom Color Variables */
+:root {
+  --settings-primary-color: #1890ff;
+  --settings-success-color: #52c41a;
+  --settings-warning-color: #faad14;
+  --settings-error-color: #ff4d4f;
+  --settings-bg-color: #f5f5f5;
+  --settings-card-bg: #ffffff;
+  --settings-border-color: #d9d9d9;
+  --settings-text-color: #262626;
+  --settings-text-secondary: #8c8c8c;
+}

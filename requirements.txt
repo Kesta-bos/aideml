@@ -90,5 +90,4 @@ pyocr
 pyarrow
 xlrd
 backoff
-streamlit==1.40.2
 python-dotenv
